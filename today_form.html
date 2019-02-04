@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="filter">
+<head>
+  <link href="/css/form_style.css" rel="text/stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script type="text/javascript" src="usersignupfilter.js"></script>
+</head>
+<body ng-controller="sending_data">
+  <h1 style="text-align:cente;padding-top:1em;text-align:center;">LoanCompanies Form</h1>
+  <div class="login-page">
+<form>
+         <input ng-model="email" type="email" placeholder="Name" name="email">
+        <input ng-model="password" type="text"  placeholder="Password">
+        <button type="button" name="button" ng-click="send()">send</button>
+      </form>
+    </div>
+  </body>
+</html>

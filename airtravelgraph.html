@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div style="font:large;"ng-app="app_table"ng-controller="graph" ng-init="getall()" id="chartContainer" style="height: 300px; width: 100%;">
+</div>
+<script>
+	var app = angular.module('app_table', []);
+	app.controller('graph',function($scope,$http){
+	  $scope.data_y=[];
+	  $scope.data_x=[];
+	  $scope.data_total=[];
+		$scope.test_data=[];
+		var graph_data=[];
+
+	  $scope.getall=function(){
+	    $http({
+	           method : "GET",
+	           url : "https://glacial-citadel-47306.herokuapp.com/api/AirTravelCompanies",
+	         }).then(function(res){
+	           $scope.data_total=res.data;
+						 data_len=$scope.data_total.length;
+
+						for(var i=0;i<data_len;i++)
+								graph_data.push($scope.data_total[i].name);
+
+							graph_len=graph_data.length;
+							// console.log(graph_len)
+							// var data=[];
+              console.log(graph_data);
+            var final_data=process(graph_data);
+
+            function process(arr){
+              var final_data=[];
+              var ref=[];
+              for(var i=0;i<arr.length;i++){
+                var index=arr.indexOf(arr[i]);
+								if(index<i){
+									console.log(index);
+									for(var j=0;j<final_data.length;j++){
+										if(final_data[j].label===arr[i])
+											final_data[j].y++;
+									}
+								}
+                else{
+                  final_data.push({label:arr[i],y:1});
+                  console.log(final_data);
+                }
+              }
+              return final_data;
+            }
+
+
+
+
+
+							// console.log(filtered_data);
+						 var chart = new CanvasJS.Chart("chartContainer", {
+					 		title:{
+					 			text: "AirTravelCompanies Graph"
+					 		},
+					 		data: [
+					 		{
+					 			// Change type to "doughnut", "line", "splineArea", etc.
+					 			type: "doughnut",
+					 			dataPoints:
+					 				final_data
+					 		}
+					 		]
+					 	});
+					 chart.render();
+	   });
+	  }
+	})
+</script>
+</body>
+</html>

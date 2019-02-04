@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<link rel='stylesheet' href="css/Table.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="./js/mentor.js"></script>
+</head>
+<body >
+<div id="f-accordion" ng-controller="forex" ng-init="getall()">
+    <h3><i class="fa fa-tasks"></i>Table</h3>
+  <div>
+	<aside class="alert success">
+  <p><i class="icon fa fa-envelope-o"></i> Roger Roger, Message Received. <i class="close fa fa-times"></i></p>
+</aside>
+<input style="width:25%;" type="search" class="light-table-filter" data-table="order-table" placeholder="Filtrer"/><button ng-click="Name()">Search</button>
+	<section class="table-box">
+		<table class="order-table">
+			<thead>
+        <tr>
+            <th class="text-left">No.</th>
+                    <th class="text-left">Name</th>
+                    <th class="text-left">Location</th>
+                    <th class="text-left">Description</th>
+                    <th class="text-left">Rating</th>
+                    <th class="text-left">Students Served</th>
+        </tr>
+			</thead>
+			<tbody>
+        <tr>
+            <tr ng-repeat="x in data" >
+
+                <td ng-bind="$index+1"></td>
+                <td ng-bind="x.name "></td>
+                <td ng-bind="x.location"></td>
+                <td ng-bind="x.desc "></td>
+                <td ng-bind="x.rating "></td>
+                <td ng-bind="x.students_served "></td>
+                <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+              </tr>
+        </tr>
+			</tbody>
+		</table>
+	</section>
+
+  </div>
+</div>
+	<!-- jQuery via Google's CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+  </body>
+  </html>

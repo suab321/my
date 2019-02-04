@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foreign Admits</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    <script href="js/formjs.js">
+    </script>
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/mentor.css">
+    <link rel="stylesheet" href="css/formcss.css">
+</head>
+<body>
+
+    <div class="main" style="padding:1.5% 0px; background-image: linear-gradient(#2980B9,#6DD5FA);">
+<!-- Sing in  Form -->
+        
+        <section class="sign-in">
+            <div class="container">
+                <div class="text-center" style="padding:20px;">
+                <center><img class="img-responsive" src="images/logo.png"></center>
+                    <br>
+                     <h2 class="form-title">Register as a Student</h2>
+                </div>
+                
+                   <form class="col-md-12">
+   <div class="form-row row">
+     <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input type="name" class="form-control" id="name" placeholder="Your Name">
+     </div>
+      
+      <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Your Email Address">
+      </div>
+     </div>
+                       
+    <div class="form-row row">       
+    <div class="form-group col-md-6">
+      <label for="inputContact">Contact Number</label>
+      <input type="name" class="form-control" id="inputContact" placeholder="Your Contact Number">
+    </div>
+        <div class="form-group col-md-6">
+      <label for="inputState">Applying for</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    </div>
+          
+    <div class="form-row row">  
+    <div class="form-group col-md-6">
+      <label for="inputState">Target Application Session</label>
+      <select id="inputState" class="form-control">
+          <option selected>...</option>
+          <option>Jan</option>
+          <option>Feb</option>
+          <option>Mar</option>
+          <option>Apr</option>
+          <option>May</option>
+          <option>Jun</option>
+          <option>July</option>
+          <option>Aug</option>
+          <option>Sep</option>
+          <option>Oct</option>
+          <option>Nov</option>
+          <option>Dec</option>
+          
+        <option>...</option>
+      </select>
+        </div>
+   <div class="form-group col-md-6">
+      <label for="inputState"><br></label>
+      <select id="inputState" class="form-control inline">
+          <option selected>...</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+        <option>...</option>
+      </select>
+        </div>
+        <br>
+    </div>
+                       
+  <div class="form-row row">
+    <div class="form-group col-md-6">
+      <label for="inputState">What do you want to study</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+      
+      <div class="form-group col-md-6">
+      <label for="inputCity">Any Particular Specialization</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+  </div>
+                       
+                       
+  <div class="form-group row">
+     <div class="form-group col-md-12">
+      <label for="inputState">Where do you want to study</label>
+      <select id="inputState" class="form-control">
+          <option selected>USA</option>
+          <option>Canada</option>
+          <option>Neteherlands</option>
+          <option>Australia</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-row row">
+    <div class="form-group col-md-6">
+      <label for="inputState">GRE Score (if already appeared)</label>
+      <input type="text" class="form-control" id="GRE_Score">
+    </div>
+      
+      <div class="form-group col-md-6">
+      <label for="inputCity">TOEFL/IELTS  Score (if already appeared)</label>
+      <input type="text" class="form-control" id="TOEFL_Score">
+    </div>
+  </div>
+           
+                       
+  <div class="form-row row">
+    <div class="form-group col-md-6">
+      <label for="inputState">Undergrad GPA (if applicable)</label>
+      <input type="text" class="form-control" id="GPA">
+    </div>
+      
+      <div class="form-group col-md-6">
+      <label for="inputCity">Undergrad University</label>
+      <input type="text" class="form-control" id="University">
+    </div>
+  </div>
+                       
+                       
+ <div class="form-group row">
+                  <div class="col-md-4" style="margin-top:15px;"> <label for="exampleFormControlFile1">Resume</label></div>
+                 <div class="col-md-8" > <input type="file" class="form-control-file" id="exampleFormControlFile1"></div>
+ </div>
+
+<div class="form-group row">
+    <div class="col-md-4" style="margin-top:15px;"> <label for="exampleFormControlFile1">Date of Appointment</label></div>
+    <div class="col-md-8" > <!-- Insert Calender Here --> </div>
+</div>
+                 
+ <div class="form-group row">
+    <div class="col-md-4" style="margin-top:15px;"> <label for="exampleFormControlFile1">Time of Appointment</label></div>
+    <div class="col-md-8" > <!-- Insert Calender Here --> </div>
+</div>
+<br>                        
+                       
+<div class="form-group">
+  <label for="description">How can we help you?</label>
+  <textarea class="form-control" rows="5" id="comment" placeholder="Write here. It will help the counsellor to prepare for your questions in advance."></textarea>
+</div>
+                       
+
+<div class="form-group form-button text-center">
+    <input type="submit" name="register" id="register" class="form-submit" style="border-radius:30px;" value="Register"/>
+</div>
+<br><br><br>
+                       
+
+  
+  
+</form>
+                </div>
+            
+        </section>
+    </div>
+
+    
+    
+    
+    
+    
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

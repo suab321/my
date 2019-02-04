@@ -1,0 +1,70 @@
+<html ng-app="app">
+<head >
+        <title></title>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="./js/student.js"></script>
+    
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel='stylesheet' href="css/table.css">
+</head>
+
+<body ng-controller="mentor" ng-init="getall()">
+<div class="table-title">
+<h3 style="text-align: center;">Student Table</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">No</th>
+<th class="text-left">Name</th>
+<th class="text-left">Email</th>
+<th class="text-left">Contact</th>
+<th class="text-left">Applying For</th>
+<th class="text-left">TargetAppSession</th>
+<th class="text-left">StudyField</th>
+<th class="text-left">Specialization</th>
+<th class="text-left">StudyCountry</th>
+<th class="text-left">GreScore</th>
+<th class="text-left">ToeflIeltsScore	</th>
+<th class="text-left">UgGPA</th>
+<th class="text-left">UgUniversity</th>
+<th class="text-left">Appointment Date</th>
+<th class="text-left">Comment</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+        <tr ng-repeat="x in data" >
+
+                <td ng-bind="$index+1"></td>
+                <td ng-bind="x.name "></td>
+                <td ng-bind="x.emailID"></td>
+                <td ng-bind="x.contactNo "></td>
+                <td ng-bind="x.ApplyingFor "></td>
+                <td ng-bind="x.TargetAppSession "></td>
+                <td ng-bind="x.StudyField "></td>
+                <td ng-bind="x.Specialization "></td>
+                <td ng-bind="x.StudyCountry "></td>
+                <td ng-bind="x.GreScore "></td>
+                <td ng-bind="x.ToeflIeltsScore "></td>
+                <td ng-bind="x.UgGPA "></td>
+                <td ng-bind="x.UgUniversity "></td>
+                <td ng-bind="x.appointemnt_date "></td>
+                <td ng-bind="x.coment "></td>
+                <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+              </tr>
+</tr>
+</tbody>
+</table>
+  </body>
+  </html>

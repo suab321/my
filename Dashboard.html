@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <!-- Required meta tags-->
+    <link rel='stylesheet' href="css/Table.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="./js/mentor.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face_dash.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link rel='stylesheet' href="css/form_style.css">
+    <link href="css/theme_dash.css" rel="stylesheet" media="all">
+
+    <!-- Animation CSS-->
+    <link href="css/animate_dash.css" rel="stylesheet">
+    <script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+
+</head>
+
+<body class="animsition">
+    <!-- Modal Section - Works on click of + Button on Universities Cards -->
+    <!-- modal static -->
+			<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+			 data-backdrop="static">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticModalLabel">Static Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>
+								This is a static modal, backdrop click will not close it.
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end modal static -->
+
+
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Profile</a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                      <li>
+                          <a href="Dashboard.html">
+                              <i class="fas fa-home"></i>Home Page</a>
+                      </li>
+                      <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Profile</a>
+                                <li>
+                          <a href="sample.html">
+                              <i class="fas fa-chart-bar"></i>University Shortlisting</a>
+                      </li>
+                      <li>
+                          <a href="sample.html">
+                              <i class="fas fa-table"></i>Profile Evaluation</a>
+                      </li>
+                      <li>
+                          <a href="sample.html">
+                              <i class="far fa-check-square"></i>SOP, LOR and Resume</a>
+                      </li>
+                        <li onclick='getval("forex")'>
+                            <a href="">
+                                <i class="fas fa-file"></i>ForexCompanies Form</a>
+                        </li>
+                        <li onclick='getval("loan")'>
+                            <a href="">
+                                <i class="fas fa-file"></i>LoanCompanies Form</a>
+                        </li>
+                        <li onclick='getval("airtravel")'>
+                            <a href="">
+                                <i class="fas fa-file"></i>AirTravelCompanies Form</a>
+                        </li>
+                        <li onclick='getval("student")'>
+                            <a href="">
+                                <i class="fas fa-user"></i>StudentView Table</a>
+                        </li>
+                        <li onclick='getval("mentor")'>
+                            <a href="">
+                                <i class="fas fa-user"></i>MentorView Table</a>
+                        </li>
+                        <li onclick='getval("forexview")'>
+                            <a href="">
+                                <i class="fas fa-usd"></i>ForexCompaniesView Table</a>
+                        </li>
+                        <li onclick='getval("loanview")'>
+                            <a href="">
+                                <i class="fas fa-inr"></i>LoanCompaniesView Table</a>
+                        </li>
+                        <li onclick='getval("airtravelview")'>
+                            <a href="">
+                                <i class="fas fa-plane"></i>AirTravelCompaniesView Table</a>
+                        </li>
+
+                  </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop" style="padding-bottom:2px;">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for Universities..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button">
+
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Ankit Choudhary</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="images/icon/avatar-01.jpg" alt="User" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Ankit Choudhary</a>
+                                                    </h5>
+                                                    <span class="email">c.ankit1997@gmail.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                  <div id="forexview">
+                    <div id="f-accordion" ng-controller="forex" ng-init="getall()">
+                        <h3><i class="fa fa-tasks"></i>Forex Table</h3>
+                      <div>
+                    <input id="forexname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <button ng-click="Search()" class="au-btn--submit" type="submit">
+                        <i style="color:black;"class="zmdi zmdi-search"></i>
+                          <button style="margin-left:9%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" ng-click="Reset()">Reset</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable')">DownloadExcelSheet</button>
+                            <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable','forextable.pdf')">DownloadPDF</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('forexgraph.html')">ShowGraph</button>
+                      <section class="table-box">
+                    		<table id='forextable' class="order-table">
+                    			<thead>
+                            <tr>
+                                <th class="text-left">No.</th>
+                                <th class="text-left">Name</th>
+                                <th class="text-left">Location</th>
+                                <th class="text-left">Description</th>
+                                <th class="text-left">Rating</th>
+                                <th class="text-left">Students Served</th>
+                            </tr>
+                    			</thead>
+                    			<tbody>
+                            <tr>
+                                <tr ng-repeat="x in data" >
+
+                                  <td ng-bind="$index+1"></td>
+                                  <td ng-bind="x.name "></td>
+                                  <td ng-bind="x.location"></td>
+                                  <td ng-bind="x.desc "></td>
+                                  <td ng-bind="x.rating "></td>
+                                  <td ng-bind="x.students_served "></td>
+                                    <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+                                  </tr>
+                            </tr>
+                    			</tbody>
+                    		</table>
+                    	</section>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div id='loanview'>
+                    <div id="f-accordion" ng-controller="loan" ng-init="getall()">
+                        <h3><i class="fa fa-tasks"></i>LoanCompanies Table</h3>
+                      <div>
+                    <input id="loanname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <button ng-click="Search()" class="au-btn--submit" type="submit">
+                        <i style="color:black;"class="zmdi zmdi-search"></i>
+                        <button style="margin-left:9%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" ng-click="Reset()">Reset</button>
+                        <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('loantable')">DownloadExcelSheet</button>
+                        <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('loantable','loantable.pdf')">DownloadPDF</button>
+                        <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('loangraph.html')">ShowGraph</button>
+                      <section class="table-box">
+                        <table id='loantable' class="order-table">
+                          <thead>
+                            <tr>
+                                <th class="text-left">No.</th>
+                                <th class="text-left">Name</th>
+                                <th class="text-left">Location</th>
+                                <th class="text-left">Description</th>
+                                <th class="text-left">Rating</th>
+                                <th class="text-left">Students Served</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <tr ng-repeat="x in data" >
+
+                                  <td ng-bind="$index+1"></td>
+                                  <td ng-bind="x.name "></td>
+                                  <td ng-bind="x.location"></td>
+                                  <td ng-bind="x.desc "></td>
+                                  <td ng-bind="x.rating "></td>
+                                  <td ng-bind="x.students_served "></td>
+                                    <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+                                  </tr>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div id='airtravelview'>
+                    <div id="f-accordion" ng-controller="airtravel" ng-init="getall()">
+                        <h3><i class="fa fa-tasks"></i>AirTravelCompanies Table</h3>
+                      <div>
+                    <input id="airtravelname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <button ng-click="Search()" class="au-btn--submit" type="submit">
+                        <i style="color:black;"class="zmdi zmdi-search"></i>
+                          <button style="margin-left:9%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" ng-click="Reset()">Reset</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('airtraveltable')">DownloadExcelSheet</button>
+                            <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('airtraveltable','airtraveltable')">DownloadPDF</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('airtravelgraph.html')">ShowGraph</button>
+                      <section class="table-box">
+                        <table id='airtraveltable' class="order-table">
+                          <thead>
+                            <tr>
+                                <th class="text-left">No.</th>
+                                <th class="text-left">Name</th>
+                                <th class="text-left">Location</th>
+                                <th class="text-left">Description</th>
+                                <th class="text-left">Rating</th>
+                                <th class="text-left">Students Served</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <tr ng-repeat="x in data" >
+
+                                  <td ng-bind="$index+1"></td>
+                                  <td ng-bind="x.name "></td>
+                                  <td ng-bind="x.location"></td>
+                                  <td ng-bind="x.desc "></td>
+                                  <td ng-bind="x.rating "></td>
+                                  <td ng-bind="x.students_served "></td>
+                                    <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+                                  </tr>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
+                      </div>
+                    </div>
+                  </div>
+                  <div id='student'>
+                    <div id="f-accordion" ng-controller="student" ng-init="getall()">
+                        <h3><i class="fa fa-tasks"></i>Student Table</h3>
+                      <div>
+                    <input id="namestu" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <input id="namecountry" style="text-align:center; background:rgba(220,220,220,1);" ng-model="country" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Country Name"/><button ng-click="Search()" class="au-btn--submit" type="submit">
+                        <i style="color:black;"class="zmdi zmdi-search"></i><button style="margin-left:20%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 2%;color:black;" ng-click="Reset()">Reset</button>
+                    </button>
+                      <section class="table-box">
+                    		<table class="order-table">
+                    			<thead>
+                            <tr>
+                                <th class="text-left">No.</th>
+                                        <th class="text-left">Name</th>
+                                        <th class="text-left">Email</th>
+                                        <th class="text-left">Contact</th>
+                                        <th class="text-left">ApplyingFor</th>
+                                        <th class="text-left">TargetAppSession</th>
+                                        <th class="text-left">StudyField</th>
+                                        <th class="text-left">Specialization</th>
+                                        <th class="text-left">StudyCountry</th>
+                                        <th class="text-left">GreScore</th>
+                                        <th class="text-left">ToeflIeltsScore</th>
+                                        <th class="text-left">UgGPA</th>
+                                        <th class="text-left">UgUniversity</th>
+                                        <th class="text-left">appointemnt_date</th>
+                                        <th class="text-left">Comment</th>
+                            </tr>
+                    			</thead>
+                    			<tbody>
+                            <tr>
+                                <tr ng-repeat="x in data" >
+
+                                    <td ng-bind="$index+1"></td>
+                                    <td ng-bind="x.name "></td>
+                                    <td ng-bind="x.emailID"></td>
+                                    <td ng-bind="x.contactNo "></td>
+                                    <td ng-bind="x.ApplyingFor "></td>
+                                    <td ng-bind="x.TargetAppSession "></td>
+                                    <td ng-bind="x.StudyField "></td>
+                                    <td ng-bind="x.Specialization "></td>
+                                    <td ng-bind="x.StudyCountry "></td>
+                                    <td ng-bind="x.GreScore "></td>
+                                    <td ng-bind="x.ToeflIeltsScore "></td>
+                                    <td ng-bind="x.UgGPA "></td>
+                                    <td ng-bind="x.UgUniversity "></td>
+                                    <td ng-bind="x.appointemnt_date "></td>
+                                    <td ng-bind="x.coment "></td>
+                                    <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+                                  </tr>
+                            </tr>
+                    			</tbody>
+                    		</table>
+                    	</section>
+
+                      </div>
+                    </div>
+
+                </div>
+                <div id='mentor'>
+                  <div id="f-accordion" ng-controller="mentor" ng-init="getall()">
+                      <h3><i class="fa fa-tasks"></i>Mentor Table</h3>
+                      <input id="namemen" style="text-align:center;" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Name of Mentor"/>
+                      <button ng-click="Search()" class="au-btn--submit" type="submit">
+                          <i style="color:black;" class="zmdi zmdi-search"></i><button style="margin-left:20%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 2%;color:black;" ng-click="Reset()">Reset</button>
+                      </button>
+                    <div>
+
+                  	<section background class="table-box">
+                  		<table class="order-table">
+                  			<thead>
+                          <tr>
+                              <th class="text-left">No</th>
+                              <th class="text-left">Name</th>
+                              <th class="text-left">Email</th>
+                              <th class="text-left">Contact</th>
+                              <th class="text-left">Services</th>
+                              <th class="text-left">UniversityName</th>
+                              <th class="text-left">Major</th>
+                              <th class="text-left">Specialization</th>
+                              <th class="text-left">ProfilePic</th>
+                              <th class="text-left">ResumeUrl</th>
+                              <th class="text-left">Hrs</th>
+                              <th class="text-left">Availability</th>
+                              <th class="text-left">Description</th>
+                              <th class="text-left">LinkedinUrl</th>
+                          </tr>
+                  			</thead>
+                  			<tbody>
+                          <tr>
+                              <tr ng-repeat="x in data" >
+
+                                  <td ng-bind="$index+1"></td>
+                                  <td ng-bind="x.Name"></td>
+                                  <td ng-bind="x.EmailID"></td>
+                                  <td ng-bind="x.ContactNum"></td>
+                                  <td ng-bind="x.Services"></td>
+                                  <td ng-bind="x.UniversityName"></td>
+                                  <td ng-bind="x.Major "></td>
+                                  <td ng-bind="x.Specialization"></td>
+                                  <td ng-bind="x.ProfilePic"></td>
+                                  <td ng-bind="x.ResumeUrl"></td>
+                                  <td ng-bind="x.Hrs"></td>
+                                  <td ng-bind="x.Availability"></td>
+                                  <td ng-bind="x.Description"></td>
+                                  <td ng-bind="x.LinkedinUrl"></td>
+                            </tr>
+                          </tr>
+                  			</tbody>
+                  		</table>
+                  	</section>
+                    </div>
+                </div>
+              </div>
+                  <div id='loan'>
+                    <h1 style="text-align:cente;padding-top:1em;text-align:center;">LoanCompanies Form</h1>
+                    <div class="login-page">
+                      <div class="form">
+                        <form class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/LoanCompanies" method="POST">
+                          <input type="text" placeholder="Name" required name="name"/>
+                          <input type="text" placeholder="Location" required name="location"/>
+                          <input type="text" placeholder="Rating" required name="rating"/>
+                          <input type="text" placeholder="Students Served" required name="students_served"/>
+                           <textarea type="text" placeholder="Description" required name="desc"></textarea>
+                          <button type="submit">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                   </div>
+                   <div id='forex'>
+                     <h1 id="form_header" style="text-align:center;padding-top:1em;text-align:center;">ForexCompanies Form</h1>
+                     <div class="login-page">
+                       <div class="form">
+                         <form class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/ForexCompanies" method="POST">
+                           <input type="text" placeholder="Name" required name="name"/>
+                           <input type="text" placeholder="Location" required name="location"/>
+                           <input type="text" placeholder="Rating" required name="rating"/>
+                           <input type="text" placeholder="Students Served" required name="students_served"/>
+                           <textarea type="text" placeholder="Description" required name="desc"></textarea>
+                           <button type="submit">Submit</button>
+                         </form>
+                       </div>
+                     </div>
+                      </div>
+                        <div id='airtravel'>
+                          <h1 style="text-align:center;padding-top:1em;text-align:center;">AirTravelCompanies Form</h1>
+                          <div class="login-page">
+                            <div class="form">
+                              <form class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/AirTravelCompanies" method="POST">
+                                <input type="text" placeholder="Name" required name="name"/>
+                                <input type="text" placeholder="Location"required name="location"/>
+                                <input type="text" placeholder="Rating" required name="rating"/>
+                                <input type="text" placeholder="Students_Served" required name="students_served"/>
+                                 <textarea type="text" placeholder="Description" required name="desc"></textarea>
+                                <button type="submit">Submit</button>
+                              </form>
+                            </div>
+                          </div>
+                         </div>
+                         <div id="forexgraph" ng-app="app_table"ng-controller="graph" ng-init="getall()"  style="height: 300px; width: 100%;">
+                         </div>
+                    <div class="container-fluid" id="hide_when_clickon_form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">overview</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="country">
+                                                <option selected="selected">United States</option>
+                                                <option value="">Canada</option>
+                                                <option value="">Netherlands</option>
+                                                <option value="">Japan</option>
+                                                <option value="">Singapore</option>
+                                                <option value="">Sweden</option>
+                                                <option value="">Germany</option>
+                                                <option value="">France</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="course">
+                                                <option selected="selected">Arts and Media</option>
+                                                <option value="">Aerospace Engineering</option>
+                                                <option value="">Biological Engineering</option>
+                                                <option value="">Civil/Construction/Structural</option>
+                                                <option value="">Computer Science</option>
+                                                <option value="">Electrical Engineering</option>
+                                                <option value="">Engineering Management</option>
+                                                <option value="">Environmental Engineering</option>
+                                                <option value="">Industrial Engineering</option>
+                                                <option value="">Management Information</option>
+                                                <option value="">Material Science</option>
+                                                <option value="">Mechanical Engineering</option>
+                                                <option value="">Data Mining</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--lg">
+                                            <select class="js-select2" name="course">
+                                                <option selected="selected">Average GRE</option>
+                                                <option value="">> 320</option>
+                                                <option value="">> 310</option>
+                                                <option value="">> 305</option>
+                                                <option value="">> 300</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="course">
+                                                <option selected="selected">Top 50</option>
+                                                <option value="">Top 100</option>
+                                                <option value="">All</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+
+
+                                    </div>
+                                    <p style="margin-top:1%;font-size:16px;">$ <span id="demo"></span></p>
+                                    <div class="table-data__tool-right">
+                                        <div class="slidecontainer rs-select2--light">
+                                            <p>Annual Tution Fee </p>
+                                        <input type="range" min="1000" max="1000000" value="500000" class="slider" id="myRange">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>name</th>
+                                                <th>email</th>
+                                                <th>description</th>
+                                                <th>date</th>
+                                                <th>status</th>
+                                                <th>price</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <img class="img-responsive" src="responsive-design-icon.png">
+                                                </td>
+                                                <td>Lori Lynch</td>
+                                                <td>
+                                                    <span class="block-email">lori@example.com</span>
+                                                </td>
+                                                <td class="desc">Samsung S8 Black</td>
+                                                <td>2018-09-27 02:12</td>
+                                                <td>
+                                                    <span class="status--process">Processed</span>
+                                                </td>
+                                                <td>$679.00</td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>Lori Lynch</td>
+                                                <td>
+                                                    <span class="block-email">john@example.com</span>
+                                                </td>
+                                                <td class="desc">iPhone X 64Gb Grey</td>
+                                                <td>2018-09-29 05:57</td>
+                                                <td>
+                                                    <span class="status--process">Processed</span>
+                                                </td>
+                                                <td>$999.00</td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>Lori Lynch</td>
+                                                <td>
+                                                    <span class="block-email">lyn@example.com</span>
+                                                </td>
+                                                <td class="desc">iPhone X 256Gb Black</td>
+                                                <td>2018-09-25 19:03</td>
+                                                <td>
+                                                    <span class="status--denied">Denied</span>
+                                                </td>
+                                                <td>$1199.00</td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>Lori Lynch</td>
+                                                <td>
+                                                    <span class="block-email">doe@example.com</span>
+                                                </td>
+                                                <td class="desc">Camera C430W 4k</td>
+                                                <td>2018-09-24 19:10</td>
+                                                <td>
+                                                    <span class="status--process">Processed</span>
+                                                </td>
+                                                <td>$699.00</td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
+                                                            <i class="zmdi zmdi-mail-send"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
+                                                            <i class="zmdi zmdi-more"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>-->
+                                <!-- END DATA TABLE -->
+                            </div>
+                        </div>
+
+
+                        <!--<div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>10368</h2>
+                                                <span>members online</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart1"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>388,688</h2>
+                                                <span>items solid</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-calendar-note"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>1,086</h2>
+                                                <span>this week</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-money"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>$1,060,386</h2>
+                                                <span>total earnings</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart4"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+
+
+
+                        <div class="row">
+                            <div class="col-lg-6 animated fadeInDown">
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2">University of Arizona</h3>
+                                        <div class="chart-info">
+                                          <!-- University Tagline/One Liner Description (if any)-->
+                                        </div>
+                                       <!-- <div class="recent-report__chart">
+                                            <canvas id="recent-rep-chart"></canvas>
+                                        </div>-->
+                                        <img style="margin:2%;" class="img-responsive" src="images/Universities/arizona.png">
+                                        <br><br>
+                                        <div>
+                                        <p>Universities are defined by their people, and you could say the people here were born to challenge "business as usual." The University of Arizona existed before Arizona was a state.</p>
+                                        </div>
+                                         <div class="a-card-title">
+                                             <button class="a-btn-plus"  data-toggle="modal" data-target="#staticModal">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 animated fadeInDown">
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2">University of Texas</h3>
+                                        <div class="chart-info">
+                                          <!-- University Tagline/One Liner Description (if any)-->
+                                        </div>
+                                       <!-- <div class="recent-report__chart">
+                                            <canvas id="recent-rep-chart"></canvas>
+                                        </div>-->
+                                        <img style="margin:2%;" class="img-responsive" src="images/Universities/texas.png">
+                                        <br><br>
+                                        <div>
+                                        <p>Texas A&M opened its doors in 1876 as the state's first public institution of higher learning. Today, we stand as a research-intensive flagship university dedicated to sending Aggie leaders...</p>
+                                        </div>
+                                         <div class="a-card-title">
+                                             <button class="a-btn-plus"  data-toggle="modal" data-target="#staticModal">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-lg-6 wow fadeInDown">
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2">University of Texas</h3>
+                                        <div class="chart-info">
+                                          <!-- University Tagline/One Liner Description (if any)-->
+                                        </div>
+                                       <!-- <div class="recent-report__chart">
+                                            <canvas id="recent-rep-chart"></canvas>
+                                        </div>-->
+                                        <img style="margin:2%;" class="img-responsive" src="images/Universities/texas.png">
+                                        <br><br>
+                                        <div>
+                                        <p>Texas A&M opened its doors in 1876 as the state's first public institution of higher learning. Today, we stand as a research-intensive flagship university dedicated to sending Aggie leaders...</p>
+                                        </div>
+                                         <div class="a-card-title">
+                                             <button class="a-btn-plus"  data-toggle="modal" data-target="#staticModal">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-6 wow fadeInDown" data-wow-delay="0.2s">
+                                <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2">University of Arizona</h3>
+                                        <div class="chart-info">
+                                          <!-- University Tagline/One Liner Description (if any)-->
+                                        </div>
+                                       <!-- <div class="recent-report__chart">
+                                            <canvas id="recent-rep-chart"></canvas>
+                                        </div>-->
+                                        <img style="margin:2%;" class="img-responsive" src="images/Universities/arizona.png">
+                                        <br><br>
+                                        <div>
+                                        <p>Universities are defined by their people, and you could say the people here were born to challenge "business as usual." The University of Arizona existed before Arizona was a state.</p>
+                                        </div>
+                                         <div class="a-card-title">
+                                             <button class="a-btn-plus"  data-toggle="modal" data-target="#staticModal">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2018 Foriegn Admits<br>All rights reserved.  Designed By <a href="http://ankitchoudhary.co.in"> Clustroit Dynamics</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Range Slider Script (Tution Fee)-->
+    <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var forex=document.getElementById("forex");
+    var loan=document.getElementById("loan");
+    var airtravel=document.getElementById("airtravel");
+    var student=document.getElementById("student");
+    var mentor=document.getElementById("mentor");
+    var forexview=document.getElementById("forexview");
+    var loanview=document.getElementById("loanview");
+    var airtravelview=document.getElementById("airtravelview");
+    forexgraph.style.display="none";
+    airtravelview.style.display="none";
+    loanview.style.display="none";
+    forexview.style.display="none";
+    student.style.display='none';
+    mentor.style.display='none';
+    forex.style.display='none';
+    airtravel.style.display='none';
+    loan.style.display='none';
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
+    <script>
+    var main_content=document.getElementById("hide_when_clickon_form");
+    var loan=document.getElementById("loan");
+    var airtravel=document.getElementById("airtravel");
+    var forex=document.getElementById("forex");
+    var student=document.getElementById("student");
+    var mentor=document.getElementById("mentor");
+    var forexview=document.getElementById("forexview");
+    var loanview=document.getElementById("loanview");
+    var airtravelview=document.getElementById("airtravelview");
+    var forexgraph=document.getElementById("forexgraph");
+
+    function exportTableToExcel(tableID, filename){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.pdf':tableID+'.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}
+    function goto(url){
+      window.open(url);
+    }
+      function getval(url){
+        main_content.style.display="none";
+        if(url==='forex'){
+          loan.style.display="none";
+          airtravel.style.display="none";
+          forex.style.display='block';
+          student.style.display='none';
+          mentor.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='loan'){
+          forex.style.display="none";
+          airtravel.style.display="none";
+          loan.style.display='block';
+          student.style.display='none';
+          mentor.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='airtravel'){
+          loan.style.display="none";
+          forex.style.display="none";
+          airtravel.style.display='block';
+          student.style.display='none';
+          mentor.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='student'){
+          loan.style.display="none";
+          forex.style.display="none";
+          student.style.display='block';
+          airtravel.style.display='none';
+          mentor.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='mentor'){
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='block';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='forexview'){
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='block';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==='airtravelview'){
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="block";
+        }
+        else if(url==='loanview'){
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='block';
+          airtravelview.style.display="none";
+        }
+      }
+    </script>
+
+
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->
