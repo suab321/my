@@ -1,5 +1,50 @@
 var app = angular.module('app',[]);
 
+
+app.controller('upload',function($scope,$http){
+  $scope.file=null;
+  $scope.uploadFile=function(){
+    console.log($scope.file);
+  }
+})
+
+app.controller('count',function($scope,$http){
+  $scope.data=[];
+  $scope.mcount;
+  $scope.scount;
+  $scope.ucount;
+  $scope.getall=function(){
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/mentors"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.mcount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/students"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.scount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/Universities"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.ucount=$scope.data.length;
+      console.log($scope.ucount);
+    })
+  }
+  })
+
+
 app.controller('mentor', function($scope, $http){
        $scopenewData={};
        $scope.data=[];
@@ -185,6 +230,8 @@ app.controller('loan',function($scope,$http){
         }
 })
 
+
+//app.conroller('mockvisa')
 
 
 

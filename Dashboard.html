@@ -131,6 +131,10 @@
                           <a href="sample.html">
                               <i class="fas fa-chart-bar"></i>University Shortlisting</a>
                       </li>
+                      <li onclick='getval("count")'>
+                          <a href="">
+                              <i class="fas fa-file"></i>Count</a>
+                      </li>
                       <li>
                           <a href="sample.html">
                               <i class="fas fa-table"></i>Profile Evaluation</a>
@@ -138,6 +142,14 @@
                       <li>
                           <a href="sample.html">
                               <i class="far fa-check-square"></i>SOP, LOR and Resume</a>
+                      </li>
+                      <li onclick='getval("mockvisa")'>
+                          <a href="">
+                              <i class="fas fa-file"></i>MockVisa Companies Form</a>
+                      </li>
+                      <li onclick='getval("university")'>
+                          <a href="">
+                              <i class="fas fa-file"></i>University Companies Form</a>
                       </li>
                         <li onclick='getval("forex")'>
                             <a href="">
@@ -277,7 +289,6 @@
                     			</tbody>
                     		</table>
                     	</section>
-
                       </div>
                     </div>
                   </div>
@@ -480,8 +491,67 @@
                     </div>
                 </div>
               </div>
+              <div id='count'>
+                <div ng-controller="count" ng-init="getall()">
+                <h1 style="text-align:center;padding-top:1em;text-align:center;">Counts</h1>
+                <div class="login-page">
+                  <div class="form">
+                    <h4>No of mentors</h4>{{mcount}}
+                    <h4>No of students</h4>{{scount}}
+                    <h4>No of Universities</h4>{{ucount}}
+                  </div>
+                </div>
+               </div>
+             </div>
+              <div id='mockvisa'>
+                 <h1 id="form_header" style="text-align:center;padding-top:1em;text-align:center;">MockVisa Form</h1>
+                <div class="login-page">
+                  <div class="form">
+                    <form class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/MockVisaInterviews" method="POST">
+                      <input type="text" placeholder="Name" required name="name"/>
+                      <input type="text" placeholder="Location" required name="location"/>
+                      <input type="text" placeholder="Rating" required name="rating"/>
+                      <input type="text" placeholder="Students Served" required name="students_servered"/>
+                       <textarea type="text" placeholder="Description" required name="desc"></textarea>
+                      <button type="submit">Submit</button>
+                    </form>
+                  </div>
+                </div>
+               </div>
+               <div id='university'>
+                 <h1  style="text-align:center;padding-top:1em;text-align:center;">University</h1>
+                 <div class="login-page">
+                   <div class="form">
+                     <form  class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/LoanCompanies" method="POST">
+                       <div id="uni-login-form">
+                       <input type="text" placeholder="Name" required name="name"/>
+                       <input type="text" placeholder="ImageLink" required name="imageUrl"/><br>
+                      <p onclick="goto('https://aqueous-mesa-24790.herokuapp.com/')">Click to upload Files</p><br><br>
+                       <input type="text" placeholder="Ranking" required name="ranking"/>
+                       <input type="text" placeholder="Location" required name="location"/>
+                       <input type="text" placeholder="Course Fees" required name="TuitionFee"/>
+                       <input type="text" placeholder="Top Recruiters" required name="TopRecruiters"/>
+                       <input type="text" placeholder="GRE Score" required name="GRE"/>
+                       <input type="text" placeholder="TOEFL Score" required name="TOEFL"/>
+                       <label>Should include Toefl Score</label><br>
+                      <h6 style="text-align:center;"> Yes</h6>
+                       <input type="radio" value=true name="GRE_TOEFL"/>
+                       <h6 style="text-align:center;">No</h6>
+                       <input type="radio" value=false name="GRE_TOEFL"/>
+
+                        <textarea type="text" placeholder="Description" required name="desc"></textarea>
+                        <div id="course_add">
+                        <input type="text" placeholder="TOEFL Score" required name="courses"/>
+                       </div>
+                     </div>
+                     <p onclick="add()">Add more courses</p>
+                      <button  type="submit">Submit</button>
+                      </form>
+                   </div>
+                 </div>
+                </div>
                   <div id='loan'>
-                    <h1 style="text-align:cente;padding-top:1em;text-align:center;">LoanCompanies Form</h1>
+                    <h1 style="text-align:center;padding-top:1em;text-align:center;">LoanCompanies Form</h1>
                     <div class="login-page">
                       <div class="form">
                         <form class="login-form" action="http://glacial-citadel-47306.herokuapp.com/api/LoanCompanies" method="POST">
@@ -968,6 +1038,14 @@
     var forexview=document.getElementById("forexview");
     var loanview=document.getElementById("loanview");
     var airtravelview=document.getElementById("airtravelview");
+    var mockvisa=document.getElementById("mockvisa");
+    var university=document.getElementById("university");
+    var count =document.getElementById("count");
+
+    count.style.display="none";
+    university.style.display="none";
+    mockvisa.style.display="none";
+    count.style.display="none";
     forexgraph.style.display="none";
     airtravelview.style.display="none";
     loanview.style.display="none";
@@ -993,6 +1071,16 @@
     var loanview=document.getElementById("loanview");
     var airtravelview=document.getElementById("airtravelview");
     var forexgraph=document.getElementById("forexgraph");
+    var mockvisa=document.getElementById("mockvisa");
+    var university=document.getElementById("university");
+    var count =document.getElementById("count");
+
+    function add(){
+      console.log("yes");
+      var newdiv=document.createElement("div");
+      newdiv.innerHTML=document.getElementById("course_add").innerHTML;
+      document.getElementById('uni-login-form').appendChild(newdiv);
+    }
 
     function exportTableToExcel(tableID, filename){
     var downloadLink;
@@ -1030,6 +1118,9 @@
       function getval(url){
         main_content.style.display="none";
         if(url==='forex'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           airtravel.style.display="none";
           forex.style.display='block';
@@ -1040,6 +1131,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='loan'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           forex.style.display="none";
           airtravel.style.display="none";
           loan.style.display='block';
@@ -1050,6 +1144,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='airtravel'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           airtravel.style.display='block';
@@ -1060,6 +1157,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='student'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           student.style.display='block';
@@ -1070,6 +1170,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='mentor'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           mentor.style.display='block';
@@ -1080,6 +1183,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='forexview'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           mentor.style.display='none';
@@ -1090,6 +1196,9 @@
           airtravelview.style.display="none";
         }
         else if(url==='airtravelview'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           mentor.style.display='none';
@@ -1100,6 +1209,9 @@
           airtravelview.style.display="block";
         }
         else if(url==='loanview'){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";
           mentor.style.display='none';
@@ -1107,6 +1219,45 @@
           student.style.display='none';
           forexview.style.display='none';
           loanview.style.display='block';
+          airtravelview.style.display="none";
+        }
+        else if(url==="mockvisa"){
+          count.style.display="none";
+          university.style.display="none";
+          mockvisa.style.display="block";
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==="count"){
+          count.style.display="block";
+          university.style.display="none";
+          mockvisa.style.display="none";
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==="university"){
+          count.style.display="none";
+          university.style.display="block";
+          mockvisa.style.display="none";
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
           airtravelview.style.display="none";
         }
       }
