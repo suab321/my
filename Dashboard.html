@@ -183,6 +183,10 @@
                             <a href="">
                                 <i class="fas fa-plane"></i>AirTravelCompaniesView Table</a>
                         </li>
+                        <li onclick='getval("mockvisaview")'>
+                            <a href="">
+                                <i class="fas fa-plane"></i>MockVisaInterviews Table</a>
+                        </li>
 
                   </ul>
                 </nav>
@@ -250,17 +254,17 @@
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                  <div id="forexview">
-                    <div id="f-accordion" ng-controller="forex" ng-init="getall()">
+                  <div id="mockvisaview">
+                    <div id="f-accordion" ng-controller="mockvisa" ng-init="getall()">
                         <h3><i class="fa fa-tasks"></i>Forex Table</h3>
                       <div>
-                    <input id="forexname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <input id="mockvisaname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
                     <button ng-click="Search()" class="au-btn--submit" type="submit">
                         <i style="color:black;"class="zmdi zmdi-search"></i>
                           <button style="margin-left:9%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" ng-click="Reset()">Reset</button>
                           <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable')">DownloadExcelSheet</button>
                             <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable','forextable.pdf')">DownloadPDF</button>
-                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('forexgraph.html')">ShowGraph</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('mockvisagraph.html')">ShowGraph</button>
                       <section class="table-box">
                     		<table id='forextable' class="order-table">
                     			<thead>
@@ -289,6 +293,48 @@
                     			</tbody>
                     		</table>
                     	</section>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="forexview">
+                    <div id="f-accordion" ng-controller="forex" ng-init="getall()">
+                        <h3><i class="fa fa-tasks"></i>Forex Table</h3>
+                      <div>
+                    <input id="forexname" style="text-align:center;background:rgba(220,220,220,1);" ng-model="name" style="width:25%;padding-right:1em;" type="search" class="light-table-filter" data-table="order-table" placeholder="Student Name"/>
+                    <button ng-click="Search()" class="au-btn--submit" type="submit">
+                        <i style="color:black;"class="zmdi zmdi-search"></i>
+                          <button style="margin-left:9%;background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" ng-click="Reset()">Reset</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable')">DownloadExcelSheet</button>
+                            <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="exportTableToExcel('forextable','forextable.pdf')">DownloadPDF</button>
+                          <button style="background-color:rgb(105,105,105,0.6);margin-top:4px;padding:0.5% 1%;color:black;" onclick="goto('forexgraph.html')">ShowGraph</button>
+                      <section class="table-box">
+                        <table id='forextable' class="order-table">
+                          <thead>
+                            <tr>
+                                <th class="text-left">No.</th>
+                                <th class="text-left">Name</th>
+                                <th class="text-left">Location</th>
+                                <th class="text-left">Description</th>
+                                <th class="text-left">Rating</th>
+                                <th class="text-left">Students Served</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <tr ng-repeat="x in data" >
+
+                                  <td ng-bind="$index+1"></td>
+                                  <td ng-bind="x.name "></td>
+                                  <td ng-bind="x.location"></td>
+                                  <td ng-bind="x.desc "></td>
+                                  <td ng-bind="x.rating "></td>
+                                  <td ng-bind="x.students_served "></td>
+                                    <!-- <td ng-bind="x.fee | myFilter : x.age | currency : '&pound;'"></td> -->
+                                  </tr>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </section>
                       </div>
                     </div>
                   </div>
@@ -499,6 +545,11 @@
                     <h4>No of mentors</h4>{{mcount}}
                     <h4>No of students</h4>{{scount}}
                     <h4>No of Universities</h4>{{ucount}}
+                    <h4>No of Forex Companies</h4>{{fcount}}
+                    <h4>No of AirTravel Companies</h4>{{atcount}}
+                    <h4>No of Loan Companies</h4>{{lcount}}
+                    <h4>No of MockVisaInterviews</h4>{{mvcount}}
+                    <!-- <h4>No of Universities</h4>{{ucount}} -->
                   </div>
                 </div>
                </div>
@@ -1041,7 +1092,9 @@
     var mockvisa=document.getElementById("mockvisa");
     var university=document.getElementById("university");
     var count =document.getElementById("count");
+    var mockvisaview=document.getElementById("mockvisaview");
 
+    mockvisaview.style.display="none";
     count.style.display="none";
     university.style.display="none";
     mockvisa.style.display="none";
@@ -1074,6 +1127,7 @@
     var mockvisa=document.getElementById("mockvisa");
     var university=document.getElementById("university");
     var count =document.getElementById("count");
+    var mockvisaview=document.getElementById("mockvisaview");
 
     function add(){
       console.log("yes");
@@ -1118,6 +1172,7 @@
       function getval(url){
         main_content.style.display="none";
         if(url==='forex'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1131,6 +1186,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='loan'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1144,6 +1200,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='airtravel'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1157,6 +1214,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='student'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1170,6 +1228,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='mentor'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1183,6 +1242,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='forexview'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1196,6 +1256,7 @@
           airtravelview.style.display="none";
         }
         else if(url==='airtravelview'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1209,6 +1270,7 @@
           airtravelview.style.display="block";
         }
         else if(url==='loanview'){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1222,6 +1284,7 @@
           airtravelview.style.display="none";
         }
         else if(url==="mockvisa"){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="none";
           mockvisa.style.display="block";
@@ -1235,6 +1298,7 @@
           airtravelview.style.display="none";
         }
         else if(url==="count"){
+          mockvisaview.style.display="none";
           count.style.display="block";
           university.style.display="none";
           mockvisa.style.display="none";
@@ -1248,8 +1312,23 @@
           airtravelview.style.display="none";
         }
         else if(url==="university"){
+          mockvisaview.style.display="none";
           count.style.display="none";
           university.style.display="block";
+          mockvisa.style.display="none";
+          loan.style.display="none";
+          forex.style.display="none";
+          mentor.style.display='none';
+          airtravel.style.display='none';
+          student.style.display='none';
+          forexview.style.display='none';
+          loanview.style.display='none';
+          airtravelview.style.display="none";
+        }
+        else if(url==="mockvisaview"){
+          mockvisaview.style.display="block";
+          count.style.display="none";
+          university.style.display="none";
           mockvisa.style.display="none";
           loan.style.display="none";
           forex.style.display="none";

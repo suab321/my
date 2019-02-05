@@ -1,18 +1,16 @@
 var app = angular.module('app',[]);
 
 
-app.controller('upload',function($scope,$http){
-  $scope.file=null;
-  $scope.uploadFile=function(){
-    console.log($scope.file);
-  }
-})
 
 app.controller('count',function($scope,$http){
   $scope.data=[];
   $scope.mcount;
   $scope.scount;
   $scope.ucount;
+  $scope.atcount;
+  $scope.fcount;
+  $scope.lcount;
+  $scope.mvcount;
   $scope.getall=function(){
     $http({
       method:"GET",
@@ -40,6 +38,42 @@ app.controller('count',function($scope,$http){
       $scope.data=res.data;
       $scope.ucount=$scope.data.length;
       console.log($scope.ucount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/LoanCompanies"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.lcount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/AirTravelCompanies"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.atcount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/ForexCompanies"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.fcount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/MockVisaInterviews"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.mvcount=$scope.data.length;
+      console.log($scope.mcount);
     })
   }
   })
@@ -164,7 +198,7 @@ app.controller('forex',function($scope,$http){
           $scope.data=$scope.originaldata;
         }
 })
-app.controller('forex',function($scope,$http){
+app.controller('mockvisa',function($scope,$http){
   $scope.data={};
   $scope.originaldata={};
   $scope.Search=function(){
@@ -181,7 +215,7 @@ app.controller('forex',function($scope,$http){
   $scope.getall=function(){
     $http({
            method : "GET",
-           url : "https://glacial-citadel-47306.herokuapp.com/api/ForexCompanies",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/MockVisaInterviews",
          }).then(function(res){
            // console.log(res.data);
            $scope.data=res.data;
@@ -190,7 +224,7 @@ app.controller('forex',function($scope,$http){
    });
   }
   $scope.Reset=function(){
-          var name=document.getElementById("forexname");
+          var name=document.getElementById("mockvisaname");
           name.value="";
           $scope.data=$scope.originaldata;
         }
