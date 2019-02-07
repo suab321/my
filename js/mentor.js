@@ -11,7 +11,19 @@ app.controller('count',function($scope,$http){
   $scope.fcount;
   $scope.lcount;
   $scope.mvcount;
+  $scope.qcount;
   $scope.getall=function(){
+
+    $http({
+      method:"GET",
+      url:"https://glacial-citadel-47306.herokuapp.com/api/students"})
+      .then(function(res){
+        console.log("my data is"+res.data.length)
+      $scope.data=res.data;
+      $scope.scount=$scope.data.length;
+      console.log($scope.mcount);
+    })
+
     $http({
       method:"GET",
       url:"https://glacial-citadel-47306.herokuapp.com/api/mentors"})
@@ -23,11 +35,11 @@ app.controller('count',function($scope,$http){
     })
     $http({
       method:"GET",
-      url:"https://glacial-citadel-47306.herokuapp.com/api/students"})
+      url:"https://glacial-citadel-47306.herokuapp.com/api/ContactUs"})
       .then(function(res){
         console.log("my data is"+res.data.length)
       $scope.data=res.data;
-      $scope.scount=$scope.data.length;
+      $scope.qcount=$scope.data.length;
       console.log($scope.mcount);
     })
     $http({
@@ -112,6 +124,9 @@ app.controller('mentor', function($scope, $http){
           $scope.data=$scope.originaldata;
         }
 });
+
+
+
 app.controller('student', function($scope, $http){
        $scopenewData={};
        $scope.data=[];
@@ -167,6 +182,8 @@ app.controller('student', function($scope, $http){
           $scope.data=$scope.originaldata;
         }
 });
+
+
 app.controller('forex',function($scope,$http){
   $scope.data={};
   $scope.originaldata={};
@@ -198,6 +215,336 @@ app.controller('forex',function($scope,$http){
           $scope.data=$scope.originaldata;
         }
 })
+
+
+app.controller('accomodation',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.name.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/accomodations",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("forexname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+app.controller('student_document',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    console.log("yes")
+    if($scope.Name===undefined||$scope.Name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.Name.toLowerCase()===$scope.Name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/Documents",
+         }).then(function(res){
+           console.log(res.data);
+           var length=res.data.length;
+           for(var i=0;i<length-1;i++){
+             for(var j=i+1;j<length;j++){
+               if(res.data[i].Name && res.data[j].Name){
+               if(res.data[i].Name.localeCompare(res.data[j]) === 1){
+                 var swap=res.data[i];
+                 res.data[i]=res.data[j];
+                 res.data[j]=swap;
+               }
+             }
+           }
+           }
+           console.log(res.data);
+           console.log("yes")
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("suab1");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+});
+
+
+
+
+
+app.controller('contactview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.name.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/ContactUs",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+app.controller('eventview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.name.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/events",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+
+
+app.controller('bookedaccomodationview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.CompanyName.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/HelpForm",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+
+app.controller('bookedloanview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.CompanyName.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/LoanInfoForms",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+
+
+app.controller('bookedforexview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.CompanyName.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/ForexHelpForms",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+app.controller('bookedairtravelview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.CompanyName.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/AirTravelForms",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+app.controller('bookedmockvisaview',function($scope,$http){
+  $scope.data={};
+  $scope.originaldata={};
+  $scope.Search=function(){
+    if($scope.name===undefined||$scope.name===""){
+       $scope.data=$scope.originaldata;
+    }
+     else{
+       $scope.data=$scope.originaldata.filter(user=>{
+         if(user.CompanyName.toLowerCase()===$scope.name.toLowerCase())
+           return user;
+       })
+     }
+  }
+  $scope.getall=function(){
+    $http({
+           method : "GET",
+           url : "https://glacial-citadel-47306.herokuapp.com/api/MockVisaInterviewForms",
+         }).then(function(res){
+           // console.log(res.data);
+           $scope.data=res.data;
+           $scope.originaldata=res.data
+           console.log($scope.data)
+   });
+  }
+  $scope.Reset=function(){
+          var name=document.getElementById("mockvisaname");
+          name.value="";
+          $scope.data=$scope.originaldata;
+        }
+})
+
+
+
+
+
 app.controller('mockvisa',function($scope,$http){
   $scope.data={};
   $scope.originaldata={};
@@ -265,7 +612,6 @@ app.controller('loan',function($scope,$http){
 })
 
 
-//app.conroller('mockvisa')
 
 
 
@@ -300,6 +646,9 @@ app.controller('airtravel',function($scope,$http){
           $scope.data=$scope.originaldata;
         }
 })
+
+
+
 
 
 app.controller('sending_data',function($scope,$http){
